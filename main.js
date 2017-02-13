@@ -14,9 +14,11 @@ function startQuiz(a, b) {
     var type = document.getElementById("ToQ").value;
     document.getElementById("userInput").value = '';
     var y = op[a];
-    var q = b;
+    if (b < 1 || b > 10) {
+        window.alert("Plase input a valid number of questions between 1 and 10")
+    } else {
     if (type === "md") {
-        while (i <= q) {
+        while (i <= b) {
             var x = Math.floor(Math.random() * 10) + 1;
             var z = Math.floor(Math.random() * 10) + 1;
             var ans = Math.round(eval(x + y + z) * 100) / 100;
@@ -30,7 +32,8 @@ function startQuiz(a, b) {
         sp.style.display = "none";
         drill.style.display = "block";
     } else {
-       choice(y, q); 
+       choice(y, b); 
+    }
     }
 }
 function choice(y, q) {
