@@ -1,0 +1,68 @@
+<!doctype HTML>
+
+<html>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <style>
+        #drill {
+            display: none;
+        }
+        #end {
+            display: none;
+        }
+        #multChoice {
+            display: none;
+        }
+    </style>
+<body>
+    <h1>Math Quiz</h1>
+    <div id="startPrompt">
+    <p>Welcome! Please fill out the form below to continue.</p>
+        <span>Type of Quiz? </span>
+        <select id="ToQ">
+            <option value="md" selected>Math Drill</option>
+            <option value="mc">Multiple Choice</option>
+        </select>
+        <br /><br />
+    <span>Type of Math? </span>
+    <select id="ToM">
+        <option value="0" selected>Addition</option>
+        <option value="1">Subtraction</option>
+        <option value="2">Multiplication</option>
+        <option value="3">Division</option>
+        <option value="4">Modulus</option>
+    </select>
+    <br /><br />
+    <span>Number of Questions: </span>
+    <input type="number" id="quest" placeholder="Choose 1-10">
+    <br /><br />
+    <button id="start" onClick="startQuiz(ToM.value, quest.value)">Start the quiz</button>
+    </div>
+    <div id="drill">
+        <span id="test"></span>
+        <input type="number" id="userInput" placeholder="Answer">
+        <button id="submit" onClick="checkAnswer()">Submit</button>
+        <p>Round to two decimal places if needed.</p>
+    </div>
+    <div id="multChoice">
+        <span id="test2"></span>
+        <select id="userInput2">
+            <option id="one" value="0"></option>
+            <option id="two" value="1"></option>
+            <option id="three" value="2"></option>
+            <option id="four" value="3"></option>
+        </select>
+        <button id="submit" onClick="checkAnswer()">Submit</button>
+    </div>
+    <div id="end">
+        <span>Congratulations!</span>
+        <br /><br />
+        <span>You made a total of </span><span id="mistake"></span><span id="mistake2"></span>
+        <br /><br />
+        <span>Your final score is </span><span id="score"></span><span> out of </span><span id="questions"></span><span>.</span>
+        <br /><br />
+        <span>Would you like to try again? </span><button onClick="restart()">Restart</button>
+    </div>
+</body>
+
+</html>
